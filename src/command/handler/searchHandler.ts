@@ -1,5 +1,10 @@
 import path from "path";
-import fs from 'fs'
+import fs from 'fs';
+import { interact } from "../../utils/clude";
+import { singlePrompt } from "../../utils/singlePrompt";
+
+
+
 export const searchHandler = (options:{prompt:string;image?:string})=>{
     if(!options.prompt ){
        console.error('missing required option "--prompt"')
@@ -16,6 +21,6 @@ export const searchHandler = (options:{prompt:string;image?:string})=>{
     }
 
     if(!options.image){
-
+        singlePrompt(options.prompt)
     }
 }

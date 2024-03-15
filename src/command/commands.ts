@@ -1,6 +1,5 @@
 import { Command } from "commander";
 import { keyHander } from "./handler/keyHandler";
-import { imageHandler } from "./handler/imageHandler";
 import { searchHandler } from "./handler/searchHandler";
 
 export const program = new Command();
