@@ -1,10 +1,9 @@
 import Anthropic from '@anthropic-ai/sdk';
 
 import readline from 'readline';
-import path, { resolve } from 'path';
+import path from 'path';
 import os from 'os';
 import fs from 'fs';
-
 
  export const interact = async() =>{
     const rl  = readline.createInterface({
@@ -23,7 +22,7 @@ import fs from 'fs';
    const apiKey:string = fs.readFileSync(keyPath,{encoding:'utf-8'})
 
    const anthropic = new Anthropic({
-    apiKey: apiKey, // defaults to process.env["ANTHROPIC_API_KEY"]
+    apiKey: apiKey,
   });
 
    console.log('Welcome to the CLI-GPT! Type "exit" to quit.');
@@ -44,7 +43,7 @@ import fs from 'fs';
                 max_tokens: 1024,
                 messages: [{ role: "user", content: question }],
               });
-            console.log('cligpt:',msg);
+            console.log('cligpt:',msg.content[0]?.text);
 
         }catch(err){
            console.error('Error:',err)
