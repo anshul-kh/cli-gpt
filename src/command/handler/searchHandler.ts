@@ -1,9 +1,7 @@
 import path from "path";
 import fs from 'fs';
-import { interact } from "../../utils/clude";
 import { singlePrompt } from "../../utils/singlePrompt";
-
-
+import { imagePrompt } from "../../utils/imagePrompt";
 
 export const searchHandler = (options:{prompt:string;image?:string})=>{
     if(!options.prompt ){
@@ -16,7 +14,7 @@ export const searchHandler = (options:{prompt:string;image?:string})=>{
         if(!fs.existsSync(imagePath)){
             console.error(`File Not Found`)
         }else{
-            
+            imagePrompt(imagePath,options.prompt)
         }
     }
 

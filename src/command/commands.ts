@@ -1,3 +1,4 @@
+process.noDeprecation = true;
 import { Command } from "commander";
 import { keyHander } from "./handler/keyHandler";
 import { searchHandler } from "./handler/searchHandler";
@@ -10,14 +11,14 @@ program
       .argument("<string>")
       .option("-r,--replace","Replace your Key")
       .description('Setup API Key')
-      .action((key,options)=>keyHander(key,options.replace))
+      .action((key:string,options:any)=>keyHander(key,options.replace))
 
 program
       .command('search')
       .option('-p,--prompt <string>',"Prompt")
       .option('-i,--image <string>','Image')
       .description('Search The Prompt')
-      .action((options)=>searchHandler(options))
+      .action((options:any)=>searchHandler(options))
 
 program 
       .command('start')

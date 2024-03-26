@@ -3,6 +3,7 @@ import os from 'os'
 import path from 'path';
 
 export const keyHander = (key:string,replace:boolean) =>{
+    console.clear()
     const homeDir =  os.homedir();
     const keyDir = path.join(homeDir,'.cligpt')
 

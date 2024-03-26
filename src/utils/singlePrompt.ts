@@ -20,13 +20,15 @@ export const singlePrompt = async(prompt:string) =>{
    });
  
    try{
-    const msg = await anthropic.messages.create({
-        model: "claude-3-opus-20240229",
-        max_tokens: 1024,
-        messages: [{ role: "user", content: prompt}],
-      });
-    console.log('cligpt:',msg.content[0]?.text);
+  // Display initial loading indicator
+  const stream = await anthropic.messages.create({
+    max_tokens: 1024,
+    messages: [{ role: 'user', content: 'Hello, Claude' }],
+    model: 'claude-3-opus-20240229',
+  });
 
+  console.log(stream)
+ 
 }catch(err){
    console.error('Error:',err)
 }

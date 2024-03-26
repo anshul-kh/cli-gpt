@@ -1,22 +1,22 @@
 {
-  "name": "cligpt",
+  "name": "jerry",
   "version": "1.0.0",
   "description": "",
   "main": "dist/main.js",
   "type": "module",
   "bin": "./dist/main.js",
   "scripts": {
-    "build": "esbuild --bundle src/main.ts --platform=node  --outfile=dist/main.js --packages=external --format=esm",
+    "build": "esbuild --bundle src/main.ts --platform=node  --outdir=dist --packages=external --format=esm",
     "local-link": "yarn unlink --global | true && yarn  build && yarn link --global"
   },
   "devDependencies": {
-    "@types/node": "^20.11.27",
+    "@types/node": "^20.11.30",
     "esbuild": "^0.20.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.18.0",
-    "commander": "^12.0.0"
+    "commander": "^12.0.0",
+    "image-type": "^5.2.0"
   }
 }
